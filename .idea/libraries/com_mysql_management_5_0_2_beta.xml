@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="com.mysql:management:5-0-2-beta" type="repository">
+    <properties maven-id="com.mysql:management:5-0-2-beta" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mysql/management/5-0-2-beta/management-5-0-2-beta.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/3.1.12/mysql-connector-java-3.1.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aspectj/aspectjrt/1.2/aspectjrt-1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/aspectj/aspectjtools/1.2/aspectjtools-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
