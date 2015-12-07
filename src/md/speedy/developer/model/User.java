@@ -1,4 +1,4 @@
-package md.speedy.developer;
+package md.speedy.developer.model;
 
 import org.json.JSONObject;
 
@@ -15,7 +15,6 @@ public class User {
     private String photo;
     private String email;
     private String id;
-//    private boolean mIsOnline;
 
     public User(JSONObject income) {
         setName(income.getString("name"));
@@ -23,6 +22,8 @@ public class User {
         setPhoto(income.getString("photo"));
         setId(income.getString("id"));
     }
+
+    public User() {}
 
     public String getName() {
         return name;
@@ -55,14 +56,6 @@ public class User {
     public void setId(String id) {
         this.id = id;
     }
-//
-//    public boolean isOnline() {
-//        return mIsOnline;
-//    }
-//
-//    public void setOnline(boolean online) {
-//        mIsOnline = online;
-//    }
 
     public JSONObject getObject(ResultSet resultSet) {
         JSONObject user = new JSONObject();

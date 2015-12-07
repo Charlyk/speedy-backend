@@ -1,7 +1,5 @@
 package md.speedy.developer.helpers;
 
-import md.speedy.developer.DBManager;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 

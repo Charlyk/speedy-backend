@@ -1,4 +1,4 @@
-package md.speedy.developer;
+package md.speedy.developer.helpers;
 
 import com.mysql.jdbc.Driver;
 
