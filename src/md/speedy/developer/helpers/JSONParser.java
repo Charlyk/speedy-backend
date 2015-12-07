@@ -1,6 +1,6 @@
 package md.speedy.developer.helpers;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;

@@ -30,11 +30,12 @@ public class GoogleAuth {
         }
     }
 
-    public void verify(String idTokenString) {
+    public GoogleIdToken.Payload verify(String idTokenString) {
+        GoogleIdToken.Payload payload = null;
         try {
             GoogleIdToken idToken = verifier.verify(idTokenString);
             if (idToken != null) {
-                GoogleIdToken.Payload payload = idToken.getPayload();
+                payload = idToken.getPayload();
                 System.out.println("User ID: " + payload.getSubject());
             } else {
                 System.out.println("Invalid ID token.");
@@ -42,5 +43,6 @@ public class GoogleAuth {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return payload;
     }
 }

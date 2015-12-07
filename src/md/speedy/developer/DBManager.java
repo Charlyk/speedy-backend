@@ -96,7 +96,7 @@ public class DBManager {
     /**
      * Close all connections with the DataBase
      */
-    public static void close() {
+    public void disconnect() {
         try {connection.close();} catch (SQLException e) {e.printStackTrace();}
         try {statement.close();} catch (SQLException e) {e.printStackTrace();}
         try {resultSet.close();} catch (SQLException e) {e.printStackTrace();}

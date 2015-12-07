@@ -9,11 +9,8 @@ import org.json.JSONObject;
  */
 public class AuthController {
 
-    public boolean isRegistered(JSONObject income) {
-        String email = income.getString("email");
-        boolean isEmailCorrect = DBManager.getInstance().exists("users", "email", email);
-        String password = income.getString("password");
-        boolean isPasswordCorrect = DBManager.getInstance().exists("users", "password", password);
-        return isEmailCorrect && isPasswordCorrect;
+    public static boolean isUserRegistered(JSONObject income) {
+        String id = income.getString("id");
+        return DBManager.getInstance().exists("users", "user_id", id);
     }
 }
