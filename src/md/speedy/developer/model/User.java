@@ -15,12 +15,16 @@ public class User {
     private String photo;
     private String email;
     private String id;
+    private String coverId;
+    private String coverUrl;
 
     public User(JSONObject income) {
         setName(income.getString("name"));
         setEmail(income.getString("email"));
         setPhoto(income.getString("photo"));
         setId(income.getString("id"));
+        setCoverId(income.getString("coverId"));
+        setCoverUrl(income.getString("coverUrl"));
     }
 
     public User() {}
@@ -57,6 +61,22 @@ public class User {
         this.id = id;
     }
 
+    public String getCoverId() {
+        return coverId;
+    }
+
+    public void setCoverId(String coverId) {
+        this.coverId = coverId;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
     public JSONObject getObject(ResultSet resultSet) {
         JSONObject user = new JSONObject();
         try {
@@ -65,6 +85,8 @@ public class User {
                 user.put("photo", resultSet.getString("photo"));
                 user.put("email", resultSet.getString("email"));
                 user.put("id", resultSet.getString("user_id"));
+                user.put("coverId", resultSet.getString("cover_id"));
+                user.put("coverUrl", resultSet.getString("cover_url"));
             }
         } catch (Exception e) {
             e.printStackTrace();

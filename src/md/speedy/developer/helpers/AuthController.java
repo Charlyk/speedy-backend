@@ -36,11 +36,13 @@ public class AuthController {
 
     public static void registerUser(JSONObject income) {
         User user = new User(income);
-        String query = "insert into users (name, photo, email, user_id) values (\""
+        String query = "insert into users (name, photo, email, user_id, cover_id, cover_url) values (\""
                 + user.getName() + "\", \""
                 + user.getPhoto() + "\", \""
                 + user.getEmail() + "\", \""
-                + user.getId() + "\");";
+                + user.getId() + "\", \""
+                + user.getCoverId() + "\", \""
+                + user.getCoverUrl() + "\");";
         DBManager.getInstance().update(query);
         out.put("Status", true);
     }
