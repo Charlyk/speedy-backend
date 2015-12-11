@@ -41,6 +41,7 @@ public class Place {
         return mResponseObject;
     }
 
+    // TODO: 12/11/15 add query to include the current user rate in response
     public JSONObject getDetailedPlace(String placeId) {
         String query = "select * from places where place_id=\"" + placeId + "\";";
         JSONObject place = new JSONObject();
