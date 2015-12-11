@@ -20,7 +20,7 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("aplication/json");
+        resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
         JSONParser<User> parser = new JSONParser<>();
         JSONObject income = parser.parseRequest(req);

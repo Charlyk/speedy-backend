@@ -14,6 +14,21 @@
         <servlet-class>md.speedy.developer.servlets.ProfileServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Favorites</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.FavoritesServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Places</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.PlacesServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DetailedPlace</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.DetailedPlaceServlet</servlet-class>
+    </servlet>
+
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -24,6 +39,21 @@
     <servlet-mapping>
         <servlet-name>CurrentProfile</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Favorites</servlet-name>
+        <url-pattern>/favorites</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Places</servlet-name>
+        <url-pattern>/places</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DetailedPlace</servlet-name>
+        <url-pattern>/place</url-pattern>
     </servlet-mapping>
 
 

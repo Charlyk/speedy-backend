@@ -17,6 +17,10 @@ import java.io.PrintWriter;
  */
 public class AuthServlet extends HttpServlet {
 
+    /**
+     * Needs a body that contains name, email, photo, id, coverId, coverUrl
+     * @link class User
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");

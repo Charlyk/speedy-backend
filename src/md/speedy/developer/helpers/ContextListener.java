@@ -14,7 +14,7 @@ public class ContextListener implements ServletContextListener {
         String dbUserName = servletContextEvent.getServletContext().getInitParameter("db_username");
         String dbPassword = servletContextEvent.getServletContext().getInitParameter("db_password");
         String dbUrl = servletContextEvent.getServletContext().getInitParameter("db_url");
-        DBManager manager = DBManager.getInstance();
+        DBManager manager = new DBManager();
         manager.setName(dbUserName);
         manager.setPassword(dbPassword);
         manager.setUrl(dbUrl);

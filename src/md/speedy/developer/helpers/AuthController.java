@@ -25,6 +25,22 @@ public class AuthController {
         return registered;
     }
 
+    public static boolean exists(String userId) {
+        String query = "select user_id from users where user_id=\"" + userId + "\";";
+        ResultSet set = DBManager.getInstance().query(query);
+        try {
+            while (set.next()) {
+                if (userId.equalsIgnoreCase(set.getString("user_id"))) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
+        return false;
+    }
+
     public static JSONObject getUserData(JSONObject income) {
         JSONObject outgoing = new JSONObject();
         String query = "select * from users where user_id=\"" + income.getString("id") + "\";";
@@ -45,6 +61,10 @@ public class AuthController {
                 + user.getCoverUrl() + "\");";
         DBManager.getInstance().update(query);
         out.put("Status", true);
+    }
+
+    public static JSONObject getUnregisteredErrorMessage() {
+        return new JSONObject().put("Status", false).put("Error", "User is not registered");
     }
 
     public static JSONObject getAuthResponse() {
