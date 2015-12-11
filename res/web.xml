@@ -29,6 +29,11 @@
         <servlet-class>md.speedy.developer.servlets.DetailedPlaceServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Comments</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.CommentsServlet</servlet-class>
+    </servlet>
+
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -54,6 +59,11 @@
     <servlet-mapping>
         <servlet-name>DetailedPlace</servlet-name>
         <url-pattern>/place</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Comments</servlet-name>
+        <url-pattern>/comments</url-pattern>
     </servlet-mapping>
 
 

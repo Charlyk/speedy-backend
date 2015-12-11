@@ -58,7 +58,7 @@ public class Place {
                 place.put("id", set.getString("place_id"));
             }
             Comment comment = new Comment();
-            response.put("place", place).put("comments", comment.build(placeId)).put("photos", getImageGallery(placeId));
+            response.put("place", place).put("comments", comment.getFourComments(placeId)).put("photos", getImageGallery(placeId));
             mResponseObject.put("ResponseData", response);
         } catch (Exception e) {
             mResponseObject.put("Status", false);

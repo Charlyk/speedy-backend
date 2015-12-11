@@ -1,6 +1,6 @@
 package md.speedy.developer.servlets;
 
-import md.speedy.developer.model.Place;
+import md.speedy.developer.model.Comment;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,21 +10,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by Eduard Albu on 07.12.15 12 2015
- * project Speedy Backend
+ * Created by Eduard Albu on 12/11/15.
+ * Speedy-API project
  */
-public class DetailedPlaceServlet extends HttpServlet {
+public class CommentsServlet extends HttpServlet {
 
-
-    /**
-     * Needs the place id to get all comments for one place
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
+        Comment comment = new Comment();
         String placeId = req.getParameter("id");
-        Place place = new Place();
-        writer.println(place.getDetailedPlace(placeId));
+        writer.println(comment.build(placeId));
     }
 }
+

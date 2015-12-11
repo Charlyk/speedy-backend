@@ -38,4 +38,25 @@ public class Comment {
         }
         return comments;
     }
+
+    public JSONArray getFourComments(String placeId) {
+        String query = "select c.comment, c.date, u.name, u.photo from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,3;";
+        ResultSet set = DBManager.getInstance().query(query);
+        JSONArray comments = new JSONArray();
+        try {
+            while (set.next()) {
+                JSONObject object = new JSONObject();
+                object.put("comment", set.getString("comment"));
+                object.put("date", set.getString("date"));
+                object.put("author", set.getString("name"));
+                object.put("authorImage", set.getString("photo"));
+                comments.put(object);
+            }
+        } catch (Exception e) {
+            mResponseObject.put("Status", false);
+            mResponseObject.put("Error", e.getMessage());
+            comments.put(mResponseObject);
+        }
+        return comments;
+    }
 }
