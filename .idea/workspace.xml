@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12d8e833-8a91-4a0a-a4e5-137dd29bac6e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/sait" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Speedy Backend.iws" />
@@ -513,7 +512,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449934692304</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="edited favorites get parameter method call">
+      <created>1449934737078</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1449934737078</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
