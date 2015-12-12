@@ -34,6 +34,11 @@
         <servlet-class>md.speedy.developer.servlets.CommentsServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Rates</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.RatesServlet</servlet-class>
+    </servlet>
+
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -64,6 +69,11 @@
     <servlet-mapping>
         <servlet-name>Comments</servlet-name>
         <url-pattern>/comments</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Rates</servlet-name>
+        <url-pattern>/rates</url-pattern>
     </servlet-mapping>
 
 
