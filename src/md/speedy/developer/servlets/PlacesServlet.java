@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 public class PlacesServlet extends HttpServlet {
 
 
+    // TODO: add post method and generate an id for each place on register time
     /**
      * Requires an offset starts from 0 and an limit of how many elements you want
      */
