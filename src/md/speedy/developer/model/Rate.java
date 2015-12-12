@@ -57,4 +57,18 @@ public class Rate {
         }
         return mResponseObject;
     }
+
+    public int getCuerrentUserRate(String userId, String placeId) {
+        String query = "select rate from rates where user_id=\"" + userId + "\" and place_id=\"" + placeId + "\";";
+        ResultSet set = DBManager.getInstance().query(query);
+        int rate = 0;
+        try {
+            while (set.next()) {
+                rate = set.getInt("rate");
+            }
+        } catch (Exception e) {
+            rate = 0;
+        }
+        return rate;
+    }
 }

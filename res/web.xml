@@ -39,6 +39,16 @@
         <servlet-class>md.speedy.developer.servlets.RatesServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>History</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.HistoriesServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TopPlaces</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.TopPlacesServlet</servlet-class>
+    </servlet>
+
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -76,6 +86,15 @@
         <url-pattern>/rates</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>History</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TopPlaces</servlet-name>
+        <url-pattern>/top</url-pattern>
+    </servlet-mapping>
 
     <!-- Context parameters -->
     <context-param>

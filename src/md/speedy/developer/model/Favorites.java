@@ -130,4 +130,24 @@ public class Favorites {
         }
         return name;
     }
+
+    public int getUnread(String userId) {
+        String query = "select unread from favorites where user_id=\"" + userId + "\"";
+        ResultSet set = DBManager.getInstance().query(query);
+        ArrayList<Boolean> unread = new ArrayList<>();
+        try {
+            while (set.next()) {
+                unread.add(set.getBoolean("unread"));
+            }
+        } catch (Exception e) {
+            return 0;
+        }
+        return unread.size();
+    }
+
+    public void changeReadStatus(String userId, String placeId) {
+        String updateQuery = "update table favorites set unread=" + false + " where user_id=\"" + userId
+                + "\" and place_id=\"" + placeId + "\";";
+        DBManager.getInstance().update(updateQuery);
+    }
 }

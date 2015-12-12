@@ -42,7 +42,7 @@ public class Place {
     }
 
     // TODO: 12/11/15 add query to include the current user rate in response
-    public JSONObject getDetailedPlace(String placeId) {
+    public JSONObject getDetailedPlace(String placeId, String userId) {
         String query = "select * from places where place_id=\"" + placeId + "\";";
         JSONObject place = new JSONObject();
         JSONObject response = new JSONObject();
@@ -58,8 +58,13 @@ public class Place {
                 place.put("rate", set.getDouble("rate"));
                 place.put("id", set.getString("place_id"));
             }
+            History history = new History();
+            history.addToHistory(placeId, userId);
             Comment comment = new Comment();
-            response.put("place", place).put("comments", comment.getFourComments(placeId)).put("photos", getImageGallery(placeId));
+            Rate rate = new Rate();
+            response.put("place", place).put("comments", comment.getFourComments(placeId))
+                    .put("photos", getImageGallery(placeId))
+                    .put("currentUserRate", rate.getCuerrentUserRate(userId, placeId));
             mResponseObject.put("ResponseData", response);
             mResponseObject.put("Status", true);
         } catch (Exception e) {
@@ -81,5 +86,26 @@ public class Place {
             mResponseObject.put("Error", e.getMessage());
         }
         return photos;
+    }
+
+    public JSONObject getTopPlaces() {
+        String query = "select * from places where rate between 3.5 and 5;";
+        ResultSet set = DBManager.getInstance().query(query);
+        try {
+            JSONArray places = new JSONArray();
+            while (set.next()) {
+                JSONObject place = new JSONObject();
+                place.put("name", set.getString("name"));
+                place.put("description", set.getString("description"));
+                place.put("logo", set.getString("logo"));
+                place.put("rate", set.getDouble("rate"));
+                place.put("id", set.getString("place_id"));
+                places.put(place);
+            }
+            mResponseObject.put("Status", true).put("ResponseData", places);
+        } catch (Exception e) {
+            mResponseObject.put("Status", false).put("Error", e.getCause());
+        }
+        return mResponseObject;
     }
 }

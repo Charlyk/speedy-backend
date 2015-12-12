@@ -88,6 +88,8 @@ public class User {
                 user.put("coverId", resultSet.getString("cover_id"));
                 user.put("coverUrl", resultSet.getString("cover_url"));
             }
+            Favorites favorites = new Favorites();
+            user.put("unreadFavorites", favorites.getUnread(user.getString("id")));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -43,7 +43,7 @@ public class AuthController {
 
     public static JSONObject getUserData(JSONObject income) {
         JSONObject outgoing = new JSONObject();
-        String query = "select * from users where user_id=\"" + income.getString("id") + "\";";
+        String query = "select * from users u where user_id=\"" + income.getString("id") + "\";";
         ResultSet resultSet = DBManager.getInstance().query(query);
         outgoing.put("ResponseData", new User().getObject(resultSet));
         outgoing.put("Status", true);
