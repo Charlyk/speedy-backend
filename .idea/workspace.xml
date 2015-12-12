@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="12d8e833-8a91-4a0a-a4e5-137dd29bac6e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/web.xml" afterPath="$PROJECT_DIR$/res/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java" />
     </list>
     <ignored path="Speedy Backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,10 +73,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FavoritesServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31428573">
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9491525">
+            <state vertical-scroll-proportion="-24.88889">
               <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
               <folding />
             </state>
@@ -99,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,7 +171,6 @@
         <option value="/usr/lib/jvm/java-8-oracle/src.zip!/java/sql/Statement.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/AuthController.java" />
-        <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/DetailedPlaceServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/CommentsServlet.java" />
@@ -169,6 +180,7 @@
         <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/DBManager.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/model/Rate.java" />
         <option value="$PROJECT_DIR$/res/web.xml" />
+        <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java" />
       </list>
     </option>
   </component>
@@ -587,7 +599,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449919476395</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="edited web.xml file">
+      <created>1449919591539</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1449919591539</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -636,7 +654,8 @@
     <MESSAGE value="blea dahuia am facut tucma deam mozgu fierbe in pula me ))))" />
     <MESSAGE value="added servlet that returns all comments for a given placeId&#10;and eddited detailed place servlet, now it returns first four comments" />
     <MESSAGE value="added logic for rates and started work on unread logic for now we need some test dor this" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logic for rates and started work on unread logic for now we need some test dor this" />
+    <MESSAGE value="edited web.xml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited web.xml file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -944,16 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9687075">
-          <caret line="56" column="113" selection-start-line="56" selection-start-column="113" selection-end-line="56" selection-end-column="113" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1004,16 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/helpers/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1048,9 +1047,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9491525">
+        <state vertical-scroll-proportion="-24.88889">
           <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/FavoritesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31428573">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
