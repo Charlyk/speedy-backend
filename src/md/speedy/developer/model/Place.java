@@ -61,6 +61,7 @@ public class Place {
             Comment comment = new Comment();
             response.put("place", place).put("comments", comment.getFourComments(placeId)).put("photos", getImageGallery(placeId));
             mResponseObject.put("ResponseData", response);
+            mResponseObject.put("Status", true);
         } catch (Exception e) {
             mResponseObject.put("Status", false);
             mResponseObject.put("Error", e.getMessage());
@@ -77,7 +78,6 @@ public class Place {
                 photos.put(set.getString("path_to_photo"));
             }
         } catch (Exception e) {
-            mResponseObject.put("Status", false);
             mResponseObject.put("Error", e.getMessage());
         }
         return photos;

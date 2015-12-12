@@ -3,6 +3,7 @@ package md.speedy.developer.helpers;
 import com.mysql.jdbc.Driver;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by Eduard Albu on 06.12.15 12 2015
@@ -104,7 +105,7 @@ public class DBManager {
 
 
     /**
-     * Check if a record already exists in database
+     * Check if a record already exists in database for one column
      * @param table name of table to search in
      * @param column name of the column
      * @param target value of what to search for
@@ -120,6 +121,23 @@ public class DBManager {
                 if (s.equalsIgnoreCase(String.valueOf(target))) {
                     exist = true;
                 }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exist;
+    }
+
+    public <T> boolean exists(String query) {
+        ResultSet resultSet = query(query);
+        boolean exist = false;
+        try {
+            ArrayList<Object> objects = new ArrayList<>();
+            while (resultSet.next()) {
+                objects.add(resultSet.getInt("id"));
+            }
+            if (objects.size() > 0) {
+                exist = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();

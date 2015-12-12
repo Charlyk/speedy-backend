@@ -53,10 +53,32 @@ public class Comment {
                 comments.put(object);
             }
         } catch (Exception e) {
-            mResponseObject.put("Status", false);
             mResponseObject.put("Error", e.getMessage());
             comments.put(mResponseObject);
         }
         return comments;
+    }
+
+    public JSONObject addComment(JSONObject income) {
+        String comment = income.getString("comment");
+        String userId = income.getString("userId");
+        String placeId = income.getString("placeId");
+        String query = "insert into comments (comment, place_id, user_id) values (\"" + comment + "\", \""
+                + placeId + "\", \"" + userId + "\");";
+        if (!DBManager.getInstance().exists("comments", "comment", comment)) {
+            int rows = DBManager.getInstance().update(query);
+            if (rows > 0) {
+                mResponseObject.put("Status", true).put("ResponseData", "Comment added successfully");
+            } else {
+                mResponseObject.put("Status", false).put("ResponseData", "Something went wrong, please try again");
+            }
+        } else {
+            mResponseObject.put("Status", false).put("ResponseData", "Comment already exists");
+        }
+        String updateUnread = "update favorites set unread=true where place_id=\"" + placeId + "\";";
+        DBManager.getInstance().update(updateUnread);
+        String updateAuthorUnread = "update favorites set unread=false where place_id=\"" + placeId + "\" and user_id=\"" + userId + "\";";
+        DBManager.getInstance().update(updateAuthorUnread);
+        return mResponseObject;
     }
 }
