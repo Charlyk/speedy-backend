@@ -68,6 +68,19 @@ public class Comment {
         if (!DBManager.getInstance().exists("comments", "comment", comment)) {
             int rows = DBManager.getInstance().update(query);
             if (rows > 0) {
+                String getCommentsCounter = "select comments from places where place_id=\"" + placeId + "\";";
+                ResultSet set = DBManager.getInstance().query(getCommentsCounter);
+                int counter = 0;
+                try {
+                    while (set.next()) {
+                        counter = set.getInt("comments");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                counter++;
+                String updateCounter = "update places set comments=" + counter + " where place_id=\"" + placeId + "\";";
+                DBManager.getInstance().update(updateCounter);
                 mResponseObject.put("Status", true).put("ResponseData", "Comment added successfully");
             } else {
                 mResponseObject.put("Status", false).put("ResponseData", "Something went wrong, please try again");

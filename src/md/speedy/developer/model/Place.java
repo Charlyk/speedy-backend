@@ -19,29 +19,29 @@ public class Place {
     }
 
     public JSONObject build(int offset, int limit) {
-        String query = "select name, description, logo, rate, place_id from places limit " + offset + "," + limit + ";";
+        String query = "select name, logo, rate, place_id, phone, comments from places limit " + offset + "," + limit + ";";
         JSONArray places = new JSONArray();
         ResultSet set = DBManager.getInstance().query(query);
         try {
             while (set.next()) {
                 JSONObject place = new JSONObject();
                 place.put("name", set.getString("name"));
-                place.put("description", set.getString("description"));
                 place.put("logo", set.getString("logo"));
                 place.put("rate", set.getDouble("rate"));
+                place.put("phone", set.getString("phone"));
                 place.put("id", set.getString("place_id"));
+                place.put("comments", set.getInt("comments"));
                 places.put(place);
             }
             mResponseObject.put("Status", true);
             mResponseObject.put("ResponseData", places);
         } catch (Exception e) {
             mResponseObject.put("Status", false);
-            mResponseObject.put("Error", e.getMessage());
+            mResponseObject.put("Error", "Error while getting places");
         }
         return mResponseObject;
     }
 
-    // TODO: 12/11/15 add query to include the current user rate in response
     public JSONObject getDetailedPlace(String placeId, String userId) {
         String query = "select * from places where place_id=\"" + placeId + "\";";
         JSONObject place = new JSONObject();
@@ -51,7 +51,9 @@ public class Place {
             while (set.next()) {
                 place.put("name", set.getString("name"));
                 place.put("description", set.getString("description"));
-                place.put("address", set.getString("address"));
+                place.put("street", set.getString("street"));
+                place.put("city", set.getString("city"));
+                place.put("country", set.getString("country"));
                 place.put("phone", set.getString("phone"));
                 place.put("email", set.getString("email"));
                 place.put("logo", set.getString("logo"));
@@ -69,7 +71,7 @@ public class Place {
             mResponseObject.put("Status", true);
         } catch (Exception e) {
             mResponseObject.put("Status", false);
-            mResponseObject.put("Error", e.getMessage());
+            mResponseObject.put("Error", "Error getting the place for id " + placeId);
         }
         return mResponseObject;
     }
@@ -83,7 +85,8 @@ public class Place {
                 photos.put(set.getString("path_to_photo"));
             }
         } catch (Exception e) {
-            mResponseObject.put("Error", e.getMessage());
+            mResponseObject.put("Status", false);
+            mResponseObject.put("Error", "Error while getting the image gallery for place " + placeId);
         }
         return photos;
     }
@@ -104,7 +107,7 @@ public class Place {
             }
             mResponseObject.put("Status", true).put("ResponseData", places);
         } catch (Exception e) {
-            mResponseObject.put("Status", false).put("Error", e.getCause());
+            mResponseObject.put("Status", false).put("Error", "Error while getting the top places");
         }
         return mResponseObject;
     }
