@@ -45,28 +45,35 @@ public class Place {
     public JSONObject getDetailedPlace(String placeId, String userId) {
         String query = "select * from places where place_id=\"" + placeId + "\";";
         JSONObject place = new JSONObject();
+        JSONObject address = new JSONObject();
+        JSONObject contacts = new JSONObject();
         JSONObject response = new JSONObject();
         ResultSet set = DBManager.getInstance().query(query);
         try {
             while (set.next()) {
                 place.put("name", set.getString("name"));
                 place.put("description", set.getString("description"));
-                place.put("street", set.getString("street"));
-                place.put("city", set.getString("city"));
-                place.put("country", set.getString("country"));
-                place.put("phone", set.getString("phone"));
-                place.put("email", set.getString("email"));
                 place.put("logo", set.getString("logo"));
                 place.put("rate", set.getDouble("rate"));
                 place.put("id", set.getString("place_id"));
+                address.put("street", set.getString("street"));
+                address.put("building", set.getString("building_number"));
+                address.put("city", set.getString("city"));
+                address.put("country", set.getString("country"));
+                contacts.put("phone", set.getString("phone"));
+                contacts.put("email", set.getString("email"));
+                contacts.put("site", set.getString("site"));
             }
             History history = new History();
             history.addToHistory(placeId, userId);
             Comment comment = new Comment();
             Rate rate = new Rate();
-            response.put("place", place).put("comments", comment.getFourComments(placeId))
-                    .put("photos", getImageGallery(placeId))
-                    .put("currentUserRate", rate.getCuerrentUserRate(userId, placeId));
+            place.put("currentUserRate", rate.getCuerrentUserRate(userId, placeId));
+            response.put("place", place)
+                    .put("address", address)
+                    .put("contacts", contacts)
+                    .put("comments", comment.getFourComments(placeId))
+                    .put("photos", getImageGallery(placeId));
             mResponseObject.put("ResponseData", response);
             mResponseObject.put("Status", true);
         } catch (Exception e) {
