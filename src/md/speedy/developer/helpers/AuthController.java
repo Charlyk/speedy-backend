@@ -17,6 +17,7 @@ public class AuthController {
         String id = income.getString("id");
         boolean registered = DBManager.getInstance().exists("users", "user_id", id);
         if (registered) {
+            out.put("Status", true);
             out.put("NewUser", false);
         } else {
             out.put("NewUser", true);
