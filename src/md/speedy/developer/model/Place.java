@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * Created by Eduard Albu on 12/11/15.
@@ -18,10 +19,11 @@ public class Place {
         mResponseObject = new JSONObject();
     }
 
-    public JSONObject build(int offset, int limit) {
+    public JSONObject build(int offset, int limit, String userId) {
         String query = "select name, logo, rate, place_id, phone, comments from places limit " + offset + "," + limit + ";";
         JSONArray places = new JSONArray();
         ResultSet set = DBManager.getInstance().query(query);
+        ArrayList<String> ids = new ArrayList<>();
         try {
             while (set.next()) {
                 JSONObject place = new JSONObject();
@@ -31,15 +33,39 @@ public class Place {
                 place.put("phone", set.getString("phone"));
                 place.put("id", set.getString("place_id"));
                 place.put("comments", set.getInt("comments"));
+                ids.add(place.getString("id"));
                 places.put(place);
             }
+            JSONArray finalPlace = new JSONArray();
+            for (int i = 0; i < places.length(); i++) {
+                JSONObject object = places.getJSONObject(i);
+                finalPlace.put(isInFavorites(ids.get(i), userId, object));
+            }
             mResponseObject.put("Status", true);
-            mResponseObject.put("ResponseData", places);
+            mResponseObject.put("ResponseData", finalPlace);
         } catch (Exception e) {
             mResponseObject.put("Status", false);
             mResponseObject.put("Error", "Error while getting places");
         }
         return mResponseObject;
+    }
+
+    public JSONObject isInFavorites(String placeId, String userId, JSONObject dest) {
+        String query = "select * from favorites where place_id=\"" + placeId + "\" and user_id=\"" + userId + "\";";
+        ResultSet set = DBManager.getInstance().query(query);
+        try {
+            set.next();
+            do {
+                if (placeId.equals(set.getString("place_id"))) {
+                    dest.put("isInFavorites", true);
+                } else {
+                    dest.put("isInFavorites", false);
+                }
+            } while (set.next());
+        } catch (Exception e) {
+            dest.put("isInFavorites", false);
+        }
+        return dest;
     }
 
     public JSONObject getDetailedPlace(String placeId, String userId) {
@@ -69,6 +95,7 @@ public class Place {
             Comment comment = new Comment();
             Rate rate = new Rate();
             place.put("currentUserRate", rate.getCuerrentUserRate(userId, placeId));
+            isInFavorites(placeId, userId, place);
             response.put("place", place)
                     .put("address", address)
                     .put("contacts", contacts)

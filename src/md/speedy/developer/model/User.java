@@ -17,6 +17,7 @@ public class User {
     private String id;
     private String coverId;
     private String coverUrl;
+    private String gender;
 
     public User(JSONObject income) {
         setName(income.getString("name"));
@@ -25,6 +26,7 @@ public class User {
         setId(income.getString("id"));
         setCoverId(income.getString("coverId"));
         setCoverUrl(income.getString("coverUrl"));
+        setGender(income.optString("gender", "unknown"));
     }
 
     public User() {}
@@ -77,6 +79,14 @@ public class User {
         this.coverUrl = coverUrl;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public JSONObject getObject(ResultSet resultSet) {
         JSONObject user = new JSONObject();
         try {
@@ -87,6 +97,7 @@ public class User {
                 user.put("id", resultSet.getString("user_id"));
                 user.put("coverId", resultSet.getString("cover_id"));
                 user.put("coverUrl", resultSet.getString("cover_url"));
+                user.put("gender", resultSet.getString("gender"));
             }
             Favorites favorites = new Favorites();
             user.put("unreadFavorites", favorites.getUnread(user.getString("id")));

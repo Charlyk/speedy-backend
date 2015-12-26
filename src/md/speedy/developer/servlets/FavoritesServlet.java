@@ -25,7 +25,7 @@ public class FavoritesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
-        String userId = req.getParameter("id");
+        String userId = req.getParameter("userId");
         if (AuthController.exists(userId)) {
             Favorites favorites = new Favorites();
             writer.println(favorites.build(userId));

@@ -134,7 +134,7 @@ public class DBManager {
         try {
             ArrayList<Object> objects = new ArrayList<>();
             while (resultSet.next()) {
-                objects.add(resultSet.getInt("id"));
+                objects.add(resultSet.getInt("user_id"));
             }
             if (objects.size() > 0) {
                 exist = true;

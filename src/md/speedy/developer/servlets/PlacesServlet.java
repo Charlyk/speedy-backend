@@ -28,8 +28,9 @@ public class PlacesServlet extends HttpServlet {
         try {
             int offset = Integer.parseInt(req.getParameter("offset"));
             int limit = Integer.parseInt(req.getParameter("limit"));
+            String userId = req.getParameter("userId");
             Place place = new Place();
-            writer.println(place.build(offset, limit));
+            writer.println(place.build(offset, limit, userId));
         } catch (Exception e) {
             writer.println(new JSONObject().put("Error", e.getMessage()).put("Status", false));
         }
