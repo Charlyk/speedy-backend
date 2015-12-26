@@ -40,7 +40,7 @@ public class Comment {
     }
 
     public JSONArray getFourComments(String placeId) {
-        String query = "select c.comment, c.date, u.name, u.photo from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,3;";
+        String query = "select c.comment, c.date, u.name, u.photo, u.gender from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,3;";
         ResultSet set = DBManager.getInstance().query(query);
         JSONArray comments = new JSONArray();
         try {
@@ -50,6 +50,7 @@ public class Comment {
                 object.put("date", set.getString("date"));
                 object.put("author", set.getString("name"));
                 object.put("authorImage", set.getString("photo"));
+                object.put("authorGender", set.getString("gender"));
                 comments.put(object);
             }
         } catch (Exception e) {
