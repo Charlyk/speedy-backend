@@ -17,7 +17,7 @@ public class TopPlacesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         Place place = new Place();
         writer.println(place.getTopPlaces());

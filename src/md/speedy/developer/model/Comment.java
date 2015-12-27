@@ -40,7 +40,7 @@ public class Comment {
     }
 
     public JSONArray getFourComments(String placeId) {
-        String query = "select c.comment, c.date, u.name, u.photo, u.gender from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,3;";
+        String query = "select c.comment, c.date, u.name, u.photo, u.gender from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,4;";
         ResultSet set = DBManager.getInstance().query(query);
         JSONArray comments = new JSONArray();
         try {
@@ -64,8 +64,9 @@ public class Comment {
         String comment = income.getString("comment");
         String userId = income.getString("userId");
         String placeId = income.getString("placeId");
-        String query = "insert into comments (comment, place_id, user_id) values (\"" + comment + "\", \""
-                + placeId + "\", \"" + userId + "\");";
+        String date = income.getString("date");
+        String query = "insert into comments (comment, place_id, user_id, date) values (\"" + comment + "\", \""
+                + placeId + "\", \"" + userId + "\", \"" + date + "\");";
         if (!DBManager.getInstance().exists("comments", "comment", comment)) {
             int rows = DBManager.getInstance().update(query);
             if (rows > 0) {

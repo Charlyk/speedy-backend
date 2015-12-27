@@ -23,7 +23,7 @@ public class AuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         JSONObject income = new JSONParser<>().parseRequest(req);
         if (!AuthController.isUserRegistered(income)) {

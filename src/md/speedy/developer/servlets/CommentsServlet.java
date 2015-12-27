@@ -22,7 +22,7 @@ public class CommentsServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         Comment comment = new Comment();
         String placeId = req.getParameter("id");
@@ -34,7 +34,7 @@ public class CommentsServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         JSONParser parser = new JSONParser();
         JSONObject income = parser.parseRequest(req);

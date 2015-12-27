@@ -19,7 +19,7 @@ public class RatesServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         JSONParser parser = new JSONParser();
         JSONObject income = parser.parseRequest(req);
