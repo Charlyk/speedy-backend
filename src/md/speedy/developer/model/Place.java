@@ -32,8 +32,8 @@ public class Place {
                 place.put("rate", set.getDouble("rate"));
                 place.put("phone", set.getString("phone"));
                 place.put("id", set.getString("place_id"));
+                ids.add(set.getString("place_id"));
                 place.put("comments", set.getInt("comments"));
-                ids.add(place.getString("id"));
                 places.put(place);
             }
             JSONArray finalPlace = new JSONArray();
@@ -96,11 +96,16 @@ public class Place {
             Rate rate = new Rate();
             place.put("currentUserRate", rate.getCuerrentUserRate(userId, placeId));
             isInFavorites(placeId, userId, place);
+            JSONArray images = getImageGallery(placeId);
+            JSONObject gallery = new JSONObject();
+            gallery.put("galleryCount", images.length())
+                    .put("images", images);
+            place.put("galleryCount", gallery.length());
             response.put("place", place)
                     .put("address", address)
                     .put("contacts", contacts)
                     .put("comments", comment.getFourComments(placeId))
-                    .put("photos", getImageGallery(placeId));
+                    .put("photos", gallery);
             mResponseObject.put("ResponseData", response);
             mResponseObject.put("Status", true);
         } catch (Exception e) {

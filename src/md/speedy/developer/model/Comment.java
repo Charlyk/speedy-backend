@@ -18,7 +18,7 @@ public class Comment {
         mResponseObject = new JSONObject();
     }
 
-    public JSONArray build(String placeId) {
+    public JSONObject build(String placeId) {
         String query = "select c.comment, c.date, u.name, u.photo from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id;";
         ResultSet set = DBManager.getInstance().query(query);
         JSONArray comments = new JSONArray();
@@ -31,12 +31,13 @@ public class Comment {
                 object.put("authorImage", set.getString("photo"));
                 comments.put(object);
             }
+            mResponseObject.put("Status", true);
+            mResponseObject.put("ResponseData", comments);
         } catch (Exception e) {
             mResponseObject.put("Status", false);
-            mResponseObject.put("Error", e.getMessage());
-            comments.put(mResponseObject);
+            mResponseObject.put("Error", "Error getting comments");
         }
-        return comments;
+        return mResponseObject;
     }
 
     public JSONArray getFourComments(String placeId) {
