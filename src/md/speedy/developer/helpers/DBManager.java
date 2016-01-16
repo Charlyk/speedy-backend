@@ -132,9 +132,9 @@ public class DBManager {
         ResultSet resultSet = query(query);
         boolean exist = false;
         try {
-            ArrayList<Object> objects = new ArrayList<>();
+            ArrayList<String> objects = new ArrayList<>();
             while (resultSet.next()) {
-                objects.add(resultSet.getInt("user_id"));
+                objects.add(resultSet.getString("user_id"));
             }
             if (objects.size() > 0) {
                 exist = true;

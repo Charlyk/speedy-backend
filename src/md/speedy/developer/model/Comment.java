@@ -18,8 +18,15 @@ public class Comment {
         mResponseObject = new JSONObject();
     }
 
+    /**
+     * Get all comments for given placeId
+     *
+     * @param placeId for which place to get comments
+     * @return JSONObject with all founded comments
+     */
     public JSONObject build(String placeId) {
-        String query = "select c.comment, c.date, u.name, u.photo from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id;";
+        String query = "select c.comment, c.date, u.name, u.photo from comments c, users u where c.place_id=\""
+                + placeId + "\" and c.user_id=u.user_id order by date desc;";
         ResultSet set = DBManager.getInstance().query(query);
         JSONArray comments = new JSONArray();
         try {
@@ -40,10 +47,19 @@ public class Comment {
         return mResponseObject;
     }
 
+
+    /**
+     * Gets the last two comments
+     *
+     * @param placeId for which place to get comments
+     * @return JSONObject with last four comments (or less)
+     */
     public JSONArray getFourComments(String placeId) {
-        String query = "select c.comment, c.date, u.name, u.photo, u.gender from comments c, users u where c.place_id=\"" + placeId + "\" and c.user_id=u.user_id limit 0,4;";
+        String query = "select c.comment, c.date, u.name, u.photo, u.gender from comments c, users u where c.place_id=\""
+                + placeId + "\" and c.user_id=u.user_id order by date desc;";
         ResultSet set = DBManager.getInstance().query(query);
         JSONArray comments = new JSONArray();
+        JSONArray lastFour = new JSONArray();
         try {
             while (set.next()) {
                 JSONObject object = new JSONObject();
@@ -54,13 +70,24 @@ public class Comment {
                 object.put("authorGender", set.getString("gender"));
                 comments.put(object);
             }
+            for (int i = 0; i < comments.length(); i++) {
+                if (i < 4) {
+                    lastFour.put(comments.get(i));
+                }
+            }
         } catch (Exception e) {
             mResponseObject.put("Error", e.getMessage());
-            comments.put(mResponseObject);
+            lastFour.put(mResponseObject);
         }
-        return comments;
+        return lastFour;
     }
 
+
+    /**
+     * Add a coment to database
+     * @param income the user request, it must contain the comment, placeId, userId and the date
+     * @return JSONObject with comment status
+     */
     public JSONObject addComment(JSONObject income) {
         String comment = income.getString("comment");
         String userId = income.getString("userId");
