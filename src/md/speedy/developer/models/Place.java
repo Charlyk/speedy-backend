@@ -101,7 +101,7 @@ public class Place {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            placeArray.put(Arrays.toString(e.getStackTrace()));
+            placeArray.put(Arrays.toString(e.getStackTrace())).put("error: " + e.toString());
         }
         return placeArray;
     }
@@ -124,21 +124,21 @@ public class Place {
     /**
      * Will write a json array from a Places array only with data for search results
      */
-    public static JSONArray writeSearchResult(ArrayList<Place> places) {
-        JSONArray placeArray = new JSONArray();
+    public static JSONObject writeSearchResult(Place place) {
+        JSONObject object = new JSONObject();
         try {
-            for (Place place : places) {
-                JSONObject object = new JSONObject();
-                object.put("name", place.getName());
-                object.put("placeId", place.getPlaceId());
-                object.put("logo", place.getLogo());
-                object.put("phone", place.getContacts().getPhone());
-                placeArray.put(object);
-            }
+            object.put("street", place.getAddress().getStreet());
+            object.put("building", place.getAddress().getBuilding());
+            object.put("city", place.getAddress().getCity());
+            object.put("country", place.getAddress().getCountry());
+            object.put("name", place.getName());
+            object.put("placeId", place.getPlaceId());
+            object.put("logo", place.getLogo());
+            object.put("phone", place.getContacts().getPhone());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return placeArray;
+        return object;
     }
 
     public static class Builder {
@@ -187,21 +187,22 @@ public class Place {
          * Get a specified number of places from database
          *
          * @param offset where to start
-         * @param limit  limit the results number
+         * @param limit  the results number
          * @param userId to check favorites
          */
-        public Builder getPlacesFromDB(int offset, int limit, String userId) {
+        public ArrayList<Place> getPlacesFromDB(int offset, int limit, String userId) {
             String query = "select * from places order by rate desc limit " + offset + "," + limit + ";";
             ResultSet resultSet = DBManager.getInstance().query(query);
             try {
                 ArrayList<Builder> builders = setCommonData(resultSet);
                 for (Builder builder : builders) {
-                    this.builders.add(addMoreData(builder, userId));
+                    addMoreData(builder, userId);
                 }
+                return buildShort(builders);
             } catch (Exception e) {
                 e.printStackTrace();
+                return new ArrayList<>();
             }
-            return this;
         }
 
 
@@ -248,7 +249,7 @@ public class Place {
 
 
         // build places for main page
-        public ArrayList<Place> buildShort() {
+        public ArrayList<Place> buildShort(ArrayList<Builder> builders) {
             ArrayList<Place> places = new ArrayList<>();
             for (Builder builder : builders) {
                 Place place = new Place();
@@ -258,6 +259,7 @@ public class Place {
                 place.commentsCounter = builder.commentsCounter;
                 place.isInFavorites = builder.isInFavorites;
                 place.placeId = builder.placeId;
+                place.contacts = builder.contacts;
                 places.add(place);
             }
             return places;

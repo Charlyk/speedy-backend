@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12d8e833-8a91-4a0a-a4e5-137dd29bac6e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/CommentModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/PlaceModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Address.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Comments.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Contacts.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Image.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Place.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/md/speedy/developer/servlets/SearchPlacesServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/web.xml" afterPath="$PROJECT_DIR$/res/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/helpers/AuthController.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/helpers/AuthController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/helpers/DBManager.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/helpers/DBManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/Comment.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/Comment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/Favorites.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/History.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/History.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/Place.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/Place.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/Rate.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/Rate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/model/User.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/servlets/DetailedPlaceServlet.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/servlets/DetailedPlaceServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/models/Place.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/models/Place.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java" afterPath="$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java" />
     </list>
     <ignored path="Speedy Backend.iws" />
@@ -45,36 +27,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlacesServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlacesServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.04897959">
+              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Place.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Place.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Place.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/models/Place.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.9708738">
-              <caret line="198" column="68" selection-start-line="198" selection-start-column="68" selection-end-line="198" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +84,6 @@
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/SearchServlet.java" />
         <option value="$PROJECT_DIR$/res/web.xml" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/SearchPlacesServlet.java" />
-        <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/AuthController.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/DBManager.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/model/Comment.java" />
@@ -143,9 +100,10 @@
         <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/DetailedPlaceServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/models/Comments.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/models/Image.java" />
-        <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/models/User.java" />
+        <option value="$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java" />
         <option value="$PROJECT_DIR$/src/md/speedy/developer/models/Place.java" />
+        <option value="$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java" />
       </list>
     </option>
   </component>
@@ -158,9 +116,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
-    <option name="y" value="-39" />
+    <option name="y" value="27" />
     <option name="width" value="1602" />
-    <option name="height" value="940" />
+    <option name="height" value="874" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -203,6 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -325,9 +284,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -670,12 +628,18 @@
       <option name="project" value="LOCAL" />
       <updated>1452911675376</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="rewrite all models and object building logics">
+      <created>1452991261546</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1452991261546</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-39" width="1602" height="940" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1" y="27" width="1602" height="874" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -686,8 +650,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.169375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.169375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -698,6 +661,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -726,7 +690,8 @@
     <MESSAGE value="added gender to comments response" />
     <MESSAGE value="edited place and commetns" />
     <MESSAGE value="coments sort by date, history dublicates and view date, rate dublicate and total rate update, place isInFavorites edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="coments sort by date, history dublicates and view date, rate dublicate and total rate update, place isInFavorites edit" />
+    <MESSAGE value="rewrite all models and object building logics" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewrite all models and object building logics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,6 +838,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -921,14 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/HistoriesServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -965,21 +925,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46530613">
           <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14693877">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/History.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -995,6 +943,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,6 +951,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="146" column="24" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,6 +959,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26938775">
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,6 +967,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4538835">
           <caret line="131" column="23" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +1008,7 @@
         <state vertical-scroll-proportion="0.06067961">
           <caret line="193" column="61" selection-start-line="193" selection-start-column="61" selection-end-line="193" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#name#0;class#Builder#0;class#PlaceModel#0" expanded="false" />
             <element signature="method#description#0;class#Builder#0;class#PlaceModel#0" expanded="false" />
             <element signature="method#street#0;class#Builder#0;class#PlaceModel#0" expanded="false" />
@@ -1078,7 +1030,7 @@
         <state vertical-scroll-proportion="0.7160194">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1088,17 +1040,7 @@
         <state vertical-scroll-proportion="0.3446602">
           <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Place.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1108,7 +1050,7 @@
         <state vertical-scroll-proportion="0.4975728">
           <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1131,21 +1073,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/History.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.51428574">
+          <caret line="70" column="53" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/model/Place.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1265306">
+          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/HistoriesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29387754">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/models/Place.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.9708738">
-          <caret line="198" column="68" selection-start-line="198" selection-start-column="68" selection-end-line="198" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.5387755">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/helpers/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04897959">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/md/speedy/developer/servlets/PlacesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04897959">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

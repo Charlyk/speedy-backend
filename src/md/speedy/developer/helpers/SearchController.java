@@ -1,12 +1,11 @@
 package md.speedy.developer.helpers;
 
-import md.speedy.developer.model.Place;
+import md.speedy.developer.models.Place;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by Eduard Albu on 16.01.16 01 2016
@@ -30,7 +29,8 @@ public class SearchController {
         JSONArray results = new JSONArray();
         for (String id : placesResult) {
             if (!id.equals(",") || !id.equals(" ")) {
-                results.put(Place.getPlace(id));
+                Place place = new Place.Builder().getPlaceDataFromDB(id, "0").buildSearchResult();
+                results.put(Place.writeSearchResult(place));
             }
         }
 
@@ -42,6 +42,7 @@ public class SearchController {
         return responseObject;
     }
 
+
     private static void getPlacesIds(ResultSet resultSet, ArrayList<String> destination) {
         try {
             StringBuilder idBuilder = new StringBuilder();
@@ -50,7 +51,11 @@ public class SearchController {
             }
             resultSet.close();
             String[] idArray = idBuilder.toString().split(",");
-            Collections.addAll(destination, idArray);
+            for (String id : idArray) {
+                if (!destination.contains(id)) {
+                    destination.add(id);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

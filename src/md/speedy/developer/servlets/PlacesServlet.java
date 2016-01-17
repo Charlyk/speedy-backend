@@ -31,13 +31,12 @@ public class PlacesServlet extends HttpServlet {
             int offset = Integer.parseInt(req.getParameter("offset"));
             int limit = Integer.parseInt(req.getParameter("limit"));
             String userId = req.getParameter("userId");
-            ArrayList<Place> places = new Place.Builder().getPlacesFromDB(offset, limit, userId).buildShort();
+            ArrayList<Place> places = new Place.Builder().getPlacesFromDB(offset, limit, userId);
             JSONArray jsonPlaces = Place.writeShortPlace(places);
-            JSONObject response = new JSONObject().put("Status", true).put("ResponseData", jsonPlaces).put("size", places.size());
-//            Place place = new Place();
+            JSONObject response = new JSONObject().put("Status", true).put("ResponseData", jsonPlaces);
             writer.println(response);
         } catch (Exception e) {
-            writer.println(new JSONObject().put("Error", e.getMessage()).put("Status", false));
+            writer.println(new JSONObject().put("Error", "Something went wrong, please try again").put("Status", false));
         }
     }
 }
