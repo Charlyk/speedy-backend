@@ -122,6 +122,7 @@ public class DBManager {
                     exist = true;
                 }
             }
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -136,12 +137,14 @@ public class DBManager {
             while (resultSet.next()) {
                 objects.add(resultSet.getString("user_id"));
             }
+            resultSet.close();
             if (objects.size() > 0) {
                 exist = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return exist;
     }
 }

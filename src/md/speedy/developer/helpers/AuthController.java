@@ -35,6 +35,7 @@ public class AuthController {
                     return true;
                 }
             }
+            set.close();
         } catch (Exception e) {
             e.getMessage();
             return false;

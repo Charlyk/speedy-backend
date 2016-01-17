@@ -38,6 +38,7 @@ public class Comment {
                 object.put("authorImage", set.getString("photo"));
                 comments.put(object);
             }
+            set.close();
             mResponseObject.put("Status", true);
             mResponseObject.put("ResponseData", comments);
         } catch (Exception e) {
@@ -70,6 +71,7 @@ public class Comment {
                 object.put("authorGender", set.getString("gender"));
                 comments.put(object);
             }
+            set.close();
             for (int i = 0; i < comments.length(); i++) {
                 if (i < 4) {
                     lastFour.put(comments.get(i));
@@ -105,6 +107,7 @@ public class Comment {
                     while (set.next()) {
                         counter = set.getInt("comments");
                     }
+                    set.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

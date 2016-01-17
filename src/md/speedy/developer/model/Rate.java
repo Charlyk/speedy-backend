@@ -65,6 +65,7 @@ public class Rate {
                 while (set.next()) {
                     rates.add(set.getInt("rate"));
                 }
+                set.close();
                 // after this we need tu sum all rates
                 int sum = 0;
                 for (int r : rates) {
@@ -93,7 +94,7 @@ public class Rate {
      * @param placeId for what place to get the rate
      * @return the rate for the given userId and placeId
      */
-    public int getCuerrentUserRate(String userId, String placeId) {
+    public static int getCuerrentUserRate(String userId, String placeId) {
         String query = "select rate from rates where user_id=\"" + userId + "\" and place_id=\"" + placeId + "\";";
         ResultSet set = DBManager.getInstance().query(query);
         int rate = 0;
@@ -101,6 +102,7 @@ public class Rate {
             while (set.next()) {
                 rate = set.getInt("rate");
             }
+            set.close();
         } catch (Exception e) {
             rate = 0;
         }

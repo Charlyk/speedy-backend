@@ -1,6 +1,7 @@
 package md.speedy.developer.servlets;
 
-import md.speedy.developer.model.Place;
+import md.speedy.developer.models.Place;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created by Eduard Albu on 07.12.15 12 2015
@@ -29,8 +31,11 @@ public class PlacesServlet extends HttpServlet {
             int offset = Integer.parseInt(req.getParameter("offset"));
             int limit = Integer.parseInt(req.getParameter("limit"));
             String userId = req.getParameter("userId");
-            Place place = new Place();
-            writer.println(place.build(offset, limit, userId));
+            ArrayList<Place> places = new Place.Builder().getPlacesFromDB(offset, limit, userId).buildShort();
+            JSONArray jsonPlaces = Place.writeShortPlace(places);
+            JSONObject response = new JSONObject().put("Status", true).put("ResponseData", jsonPlaces).put("size", places.size());
+//            Place place = new Place();
+            writer.println(response);
         } catch (Exception e) {
             writer.println(new JSONObject().put("Error", e.getMessage()).put("Status", false));
         }

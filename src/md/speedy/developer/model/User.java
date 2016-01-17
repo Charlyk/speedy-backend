@@ -99,6 +99,7 @@ public class User {
                 user.put("coverUrl", resultSet.getString("cover_url"));
                 user.put("gender", resultSet.getString("gender"));
             }
+            resultSet.close();
             Favorites favorites = new Favorites();
             user.put("unreadFavorites", favorites.getUnread(user.getString("id")));
         } catch (Exception e) {
@@ -118,6 +119,7 @@ public class User {
                 user.put("online", resultSet.getBoolean("is_online"));
                 users.add(user);
             }
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

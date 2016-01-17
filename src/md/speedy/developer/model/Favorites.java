@@ -32,6 +32,7 @@ public class Favorites {
                     mResponseObject.put("Status", false);
                 }
             }
+            set.close();
             if (!exist) {
                 DBManager.getInstance().update(query);
                 mResponseObject.put("Error", "Added successfully");
@@ -66,6 +67,7 @@ public class Favorites {
             while (resultSet.next()) {
                 places.add(resultSet.getString("place_id"));
             }
+            resultSet.close();
             for (String pl : places) {
                 getPlaces(id, pl, p);
             }
@@ -89,6 +91,7 @@ public class Favorites {
                 object.put("photo", places.getString("logo"));
                 object.put("rate", places.getDouble("rate"));
             }
+            places.close();
             object.put("lastComment", getLastComment(placeId));
             object.put("commentAuthor", getCommentAuthorName(userId));
             p.put(object);
@@ -109,6 +112,7 @@ public class Favorites {
                     comment = resultSet.getString("comment");
                 }
             }
+            resultSet.close();
         } catch (Exception e) {
             mResponseObject.put("Error", e.getMessage());
             mResponseObject.put("Status", false);
@@ -124,6 +128,7 @@ public class Favorites {
             while (set.next()) {
                 name = set.getString("name");
             }
+            set.close();
         } catch (Exception e) {
             mResponseObject.put("Error", e.getMessage());
             mResponseObject.put("Status", false);
@@ -139,6 +144,7 @@ public class Favorites {
             while (set.next()) {
                 unread.add(set.getBoolean("unread"));
             }
+            set.close();
         } catch (Exception e) {
             return 0;
         }

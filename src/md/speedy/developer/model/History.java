@@ -28,7 +28,7 @@ public class History {
      * @param placeId visited placeId
      * @param userId wh visited that place
      */
-    public void addToHistory(String placeId, String userId) {
+    public static void addToHistory(String placeId, String userId) {
         // first we need to obtain the current date
         Calendar calendar = Calendar.getInstance();
         Date date = new Date(calendar.getTimeInMillis());
