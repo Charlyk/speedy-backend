@@ -175,6 +175,7 @@ public class Place {
                     this.placeId = resultSet.getString("place_id");
                     this.rate = resultSet.getDouble("rate");
                 }
+                // TODO: update user history (save visited place to history table)
                 resultSet.close();
             } catch (Exception e) {
                 e.printStackTrace();

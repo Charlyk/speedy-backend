@@ -4,7 +4,6 @@ import md.speedy.developer.helpers.JSONParser;
 import md.speedy.developer.model.Rate;
 import org.json.JSONObject;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ import java.io.PrintWriter;
 public class RatesServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         JSONParser parser = new JSONParser();
