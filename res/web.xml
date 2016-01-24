@@ -45,11 +45,6 @@
     </servlet>
 
     <servlet>
-        <servlet-name>TopPlaces</servlet-name>
-        <servlet-class>md.speedy.developer.servlets.TopPlacesServlet</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>SearchPlaces</servlet-name>
         <servlet-class>md.speedy.developer.servlets.SearchPlacesServlet</servlet-class>
     </servlet>
@@ -99,11 +94,6 @@
     <servlet-mapping>
         <servlet-name>History</servlet-name>
         <url-pattern>/history</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>TopPlaces</servlet-name>
-        <url-pattern>/top</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

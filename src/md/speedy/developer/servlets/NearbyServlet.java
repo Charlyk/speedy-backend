@@ -22,6 +22,18 @@ public class NearbyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
+        double latitude = Double.parseDouble(req.getParameter("latitude"));
+        double longitude = Double.parseDouble(req.getParameter("longitude"));
+        String userId = req.getParameter("userId");
+        NearbyPlaces nearbyPlace = new NearbyPlaces(latitude, longitude, userId);
+        ArrayList<NearbyPlaces> nearbyPlaces = nearbyPlace.getPlaces();
+        writer.println(NearbyPlaces.writePlace(nearbyPlaces));
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json; charset=UTF-8");
+        PrintWriter writer = resp.getWriter();
         JSONObject income = new JSONParser().parseRequest(req);
         double latitude = income.getDouble("latitude");
         double longitude = income.getDouble("longitude");
