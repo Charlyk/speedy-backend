@@ -54,6 +54,11 @@
         <servlet-class>md.speedy.developer.servlets.SearchPlacesServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>NearbyServlet</servlet-name>
+        <servlet-class>md.speedy.developer.servlets.NearbyServlet</servlet-class>
+    </servlet>
+
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -104,6 +109,11 @@
     <servlet-mapping>
         <servlet-name>SearchPlaces</servlet-name>
         <url-pattern>/places/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NearbyServlet</servlet-name>
+        <url-pattern>/places/nearby</url-pattern>
     </servlet-mapping>
 
     <!-- Context parameters -->
