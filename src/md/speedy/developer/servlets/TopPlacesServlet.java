@@ -1,7 +1,5 @@
 package md.speedy.developer.servlets;
 
-import md.speedy.developer.model.Place;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

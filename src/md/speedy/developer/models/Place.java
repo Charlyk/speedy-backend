@@ -77,6 +77,10 @@ public class Place {
         return placeId;
     }
 
+    public void setPlaceId(String placeId) {
+        this.placeId = placeId;
+    }
+
     public int getUserRate() {
         return userRate;
     }
