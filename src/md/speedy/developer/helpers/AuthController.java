@@ -3,6 +3,7 @@ package md.speedy.developer.helpers;
 import md.speedy.developer.model.User;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 
 /**
@@ -54,8 +55,15 @@ public class AuthController {
 
     public static void registerUser(JSONObject income) {
         User user = new User(income);
+        String parsedName = "";
+        try {
+            byte[] nameBytes = user.getName().getBytes("ISO-8859-1");
+            parsedName = new String(nameBytes, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String query = "insert into users (name, photo, email, user_id, cover_id, gender, cover_url) values (\""
-                + user.getName() + "\", \""
+                + parsedName + "\", \""
                 + user.getPhoto() + "\", \""
                 + user.getEmail() + "\", \""
                 + user.getId() + "\", \""

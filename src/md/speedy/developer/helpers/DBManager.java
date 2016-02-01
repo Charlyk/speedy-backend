@@ -26,6 +26,10 @@ public class DBManager {
         return instance;
     }
 
+    private DBManager() {
+        setConnection();
+    }
+
 
     /**
      * Set the DataBase username

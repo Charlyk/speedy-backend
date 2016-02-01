@@ -1,6 +1,7 @@
 package md.speedy.developer.model;
 
 import md.speedy.developer.helpers.DBManager;
+import md.speedy.developer.helpers.StringEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,9 +33,9 @@ public class Comment {
         try {
             while (set.next()) {
                 JSONObject object = new JSONObject();
-                object.put("comment", set.getString("comment"));
+                object.put("comment", StringEncoder.decodeString(set.getString("comment")));
                 object.put("date", set.getString("date"));
-                object.put("author", set.getString("name"));
+                object.put("author", StringEncoder.decodeString(set.getString("name")));
                 object.put("authorImage", set.getString("photo"));
                 comments.put(object);
             }
@@ -91,7 +92,7 @@ public class Comment {
      * @return JSONObject with comment status
      */
     public JSONObject addComment(JSONObject income) {
-        String comment = income.getString("comment");
+        String comment = StringEncoder.decodeString(income.getString("comment"));
         String userId = income.getString("userId");
         String placeId = income.getString("placeId");
         String date = income.getString("date");
@@ -109,6 +110,7 @@ public class Comment {
                     }
                     set.close();
                 } catch (Exception e) {
+                    mResponseObject.put("Status", false).put("Error", e.getCause());
                     e.printStackTrace();
                 }
                 counter++;
@@ -116,10 +118,10 @@ public class Comment {
                 DBManager.getInstance().update(updateCounter);
                 mResponseObject.put("Status", true).put("ResponseData", "Comment added successfully");
             } else {
-                mResponseObject.put("Status", false).put("ResponseData", "Something went wrong, please try again");
+                mResponseObject.put("Status", false).put("Error", "Can\'t add your comment, try again later");
             }
         } else {
-            mResponseObject.put("Status", false).put("ResponseData", "Comment already exists");
+            mResponseObject.put("Status", false).put("Error", "Comment already exists");
         }
         String updateUnread = "update favorites set unread=true where place_id=\"" + placeId + "\";";
         DBManager.getInstance().update(updateUnread);

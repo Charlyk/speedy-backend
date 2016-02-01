@@ -60,7 +60,7 @@ public class Favorites {
 
     public JSONObject build(String id) {
         String query = "select * from favorites where user_id=\"" + id + "\";";
-        ResultSet resultSet = new DBManager().query(query);
+        ResultSet resultSet = DBManager.getInstance().query(query);
         try {
             JSONArray p = new JSONArray();
             ArrayList<String> places = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Favorites {
             }
             resultSet.close();
             for (String pl : places) {
-                getPlaces(id, pl, p);
+                getPlaces(pl, p);
             }
             mResponseObject.put("ResponseData", p);
             mResponseObject.put("Status", true);
@@ -81,59 +81,22 @@ public class Favorites {
         return mResponseObject;
     }
 
-    private void getPlaces(String userId, String placeId, JSONArray p) {
+    private void getPlaces(String placeId, JSONArray p) {
         String query = "select * from places where place_id=\"" + placeId + "\"";
-        ResultSet places = new DBManager().query(query);
+        ResultSet places = DBManager.getInstance().query(query);
         JSONObject object = new JSONObject();
         try {
             while (places.next()) {
                 object.put("name", places.getString("name"));
-                object.put("photo", places.getString("logo"));
-                object.put("rate", places.getDouble("rate"));
+                object.put("placeId", places.getString("place_id"));
+                p.put(object);
             }
             places.close();
-            object.put("lastComment", getLastComment(placeId));
-            object.put("commentAuthor", getCommentAuthorName(userId));
-            p.put(object);
         } catch (Exception e) {
             mResponseObject.put("Error", e.getMessage());
             mResponseObject.put("Status", false);
             e.printStackTrace();
         }
-    }
-
-    private String getLastComment(String placeId) {
-        String query = "select comment from comments where place_id=\"" + placeId + "\"";
-        ResultSet resultSet = new DBManager().query(query);
-        String comment = "";
-        try {
-            while (resultSet.next()) {
-                if (resultSet.isLast()) {
-                    comment = resultSet.getString("comment");
-                }
-            }
-            resultSet.close();
-        } catch (Exception e) {
-            mResponseObject.put("Error", e.getMessage());
-            mResponseObject.put("Status", false);
-        }
-        return comment;
-    }
-
-    private String getCommentAuthorName(String userId) {
-        String query = "select name from users where user_id=\"" + userId +"\"";
-        ResultSet set = new DBManager().query(query);
-        String name = "";
-        try {
-            while (set.next()) {
-                name = set.getString("name");
-            }
-            set.close();
-        } catch (Exception e) {
-            mResponseObject.put("Error", e.getMessage());
-            mResponseObject.put("Status", false);
-        }
-        return name;
     }
 
     public int getUnread(String userId) {
@@ -149,11 +112,5 @@ public class Favorites {
             return 0;
         }
         return unread.size();
-    }
-
-    public void changeReadStatus(String userId, String placeId) {
-        String updateQuery = "update table favorites set unread=" + false + " where user_id=\"" + userId
-                + "\" and place_id=\"" + placeId + "\";";
-        DBManager.getInstance().update(updateQuery);
     }
 }

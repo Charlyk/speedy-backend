@@ -2,6 +2,7 @@ package md.speedy.developer.servlets;
 
 import md.speedy.developer.helpers.JSONParser;
 import md.speedy.developer.model.Comment;
+import md.speedy.developer.models.Comments;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created by Eduard Albu on 12/11/15.
@@ -22,11 +24,13 @@ public class CommentsServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json; charset=UTF-8");
+        resp.setContentType("application/json; UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
-        Comment comment = new Comment();
         String placeId = req.getParameter("id");
-        writer.println(comment.build(placeId));
+        ArrayList<Comments> comments = new Comments.Builder().getCommentsFromDB(placeId).build();
+        writer.println(Comments.writeJSON(comments));
     }
 
     /**
@@ -34,11 +38,13 @@ public class CommentsServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json; charset=UTF-8");
+        resp.setContentType("application/json; UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
         JSONParser parser = new JSONParser();
         JSONObject income = parser.parseRequest(req);
-        Comment comment = new Comment();
+        Comments comment = new Comments();
         writer.println(comment.addComment(income));
     }
 }
