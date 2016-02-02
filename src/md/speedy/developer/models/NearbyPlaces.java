@@ -1,5 +1,6 @@
 package md.speedy.developer.models;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import md.speedy.developer.helpers.DBManager;
 import md.speedy.developer.helpers.DistanceCalculator;
 import org.json.JSONArray;
@@ -67,13 +68,16 @@ public class NearbyPlaces extends Place {
             for (NearbyPlaces place : places) {
                 JSONObject object = new JSONObject();
                 object.put("name", place.getName());
-                object.put("commentsCounter", place.getCommentsCounter());
-                object.put("isInFavorites", place.isInFavorites());
-                object.put("rate", place.getRate());
                 object.put("placeId", place.getPlaceId());
                 object.put("logo", place.getLogo());
-                object.put("phone", place.getContacts().getPhone());
-                object.put("distance", place.getDistance());
+
+                JSONObject address = new JSONObject(new ObjectMapper().writeValueAsString(place.getAddress()));
+                address.put("distance", place.getDistance());
+                object.put("address", address);
+
+                JSONObject contacts = new JSONObject(new ObjectMapper().writeValueAsString(place.getContacts()));
+                object.put("contacts", contacts);
+
                 placeArray.put(object);
             }
         } catch (Exception e) {
@@ -84,7 +88,7 @@ public class NearbyPlaces extends Place {
     }
 
     public ArrayList<NearbyPlaces> getPlaces() {
-        String query = "select place_id, latitude, longitude, from places";
+        String query = "select place_id, latitude, longitude from places";
         ArrayList<NearbyPlaces> nearbyPlaces = new ArrayList<>();
         ResultSet set = DBManager.getInstance().query(query);
         try {
@@ -107,9 +111,15 @@ public class NearbyPlaces extends Place {
             double distance = DistanceCalculator.distance(this.userLatitude, this.userLongitude,
                     place.getLatitude(), place.getLongitude(), "K");
             if (distance < 3) {
-                NearbyPlaces nearbyPlace = (NearbyPlaces) builder.getPlaceDataFromDB(place.getPlaceId(), userId).buildSearchResult();
-                nearbyPlace.setDistance(distance);
-                nearbyPlaces.add(nearbyPlace);
+                Place nearbyPlace = builder.getPlaceDataFromDB(place.getPlaceId(), userId).buildDetailed();
+                NearbyPlaces nbp = new NearbyPlaces();
+                nbp.setPlaceId(place.getPlaceId());
+                nbp.setDistance(distance);
+                nbp.setName(nearbyPlace.getName());
+                nbp.setAddress(nearbyPlace.getAddress());
+                nbp.setLogo(nearbyPlace.getLogo());
+                nbp.setContacts(nearbyPlace.getContacts());
+                nearbyPlaces.add(nbp);
             }
         }
         return nearbyPlaces;

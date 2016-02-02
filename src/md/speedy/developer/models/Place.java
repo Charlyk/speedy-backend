@@ -29,6 +29,54 @@ public class Place {
     private ArrayList<Comments> comments;
     private ArrayList<Image> images;
 
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setInFavorites(boolean inFavorites) {
+        isInFavorites = inFavorites;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public void setCommentsCounter(int commentsCounter) {
+        this.commentsCounter = commentsCounter;
+    }
+
+    public void setGalleryCounter(int galleryCounter) {
+        this.galleryCounter = galleryCounter;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUserRate(int userRate) {
+        this.userRate = userRate;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setContacts(Contacts contacts) {
+        this.contacts = contacts;
+    }
+
+    public void setComments(ArrayList<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public void setImages(ArrayList<Image> images) {
+        this.images = images;
+    }
+
     public Address getAddress() {
         return address;
     }
