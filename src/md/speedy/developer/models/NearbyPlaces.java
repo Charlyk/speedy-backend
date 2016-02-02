@@ -62,7 +62,8 @@ public class NearbyPlaces extends Place {
     /**
      * Will write a json array from a Places array only with data for the mai page
      */
-    public static JSONArray writePlace(ArrayList<NearbyPlaces> places) {
+    public static JSONObject writePlace(ArrayList<NearbyPlaces> places) {
+        JSONObject response = new JSONObject();
         JSONArray placeArray = new JSONArray();
         try {
             for (NearbyPlaces place : places) {
@@ -80,11 +81,12 @@ public class NearbyPlaces extends Place {
 
                 placeArray.put(object);
             }
+            response.put("Status", true).put("ResponseData", placeArray);
         } catch (Exception e) {
             e.printStackTrace();
-            placeArray.put(Arrays.toString(e.getStackTrace())).put("error: " + e.toString());
+            response.put("Status", false).put("Error", "Can\'t get favorites");
         }
-        return placeArray;
+        return response;
     }
 
     public ArrayList<NearbyPlaces> getPlaces() {
